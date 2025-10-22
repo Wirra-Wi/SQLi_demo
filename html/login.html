@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SQLi測試　登入</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+</head>
+<body>
+  <main class="container" role="main">
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">請登入</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="flash" role="status" aria-live="polite">
+            {% for m in messages %}{{ m }}<br>{% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" action="{{ url_for('login', next=request.args.get('next') or '') }}">
+        <label for="username">帳號</label>
+        <input id="username" name="username" type="text" required autofocus autocomplete="username">
+
+        <label for="password">密碼</label>
+        <input id="password" name="password" type="text" required autocomplete="current-password">
+
+        <div class="row">
+          <button class="primary" type="submit">登入</button>
+          <div class="hint">你的帳號：<strong>user888</strong></div>
+        </div>
+
+        <div class="demo">
+          <small>（此頁為教學示範，請勿在公開環境使用，也不要輸入敏感資料）</small>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,87 @@
+:root {
+  --bg-1: #fdf6e3;        /* 主背景 */
+  --bg-2: #f5ecd6;        /* 卡片 */
+  --accent: #8b5e3c;      /* 主色 */
+  --accent-light: #c9a87c;/* 輔助色 */
+  --text-main: #3e3a36;   /* 主文字色 */
+  --text-muted: #6b655d;  /* 次文字色 */
+  --card-bg: #fff8f0;     /* 卡片內底色 */
+  --shadow: 0 6px 18px rgba(60,50,40,0.08);
+  --radius: 12px;
+  --focus: 0 0 0 4px rgba(139,94,60,0.15);
+  --maxw: 520px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: var(--text-main);
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 28px auto;
+  padding: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  border: 1px solid rgba(139,94,60,0.1);
+}
+
+h2 { margin: 0 0 12px; color: var(--accent); }
+
+label { display:block; font-size:13px; color: var(--text-muted); margin-top:8px; }
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top:6px;
+  border-radius: 8px;
+  border:1px solid rgba(139,94,60,0.2);
+  background:#fffaf3;
+  outline:none;
+  font-size:15px;
+  box-sizing:border-box;
+  transition: box-shadow .12s, border-color .12s;
+}
+
+input:focus {
+  box-shadow: var(--focus);
+  border-color: var(--accent);
+}
+
+button.primary {
+  background: linear-gradient(180deg, var(--accent), var(--accent-light));
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: 0 6px 14px rgba(139,94,60,0.18);
+  transition: transform .08s ease, box-shadow .08s;
+}
+
+button.primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(139,94,60,0.18); }
+button.primary:active { transform: none; }
+
+.flash {
+  background: rgba(255,230,210,0.9);
+  border:1px solid rgba(139,94,60,0.3);
+  color: #8b3a1c;
+  padding:10px 12px;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+
+.hint, .demo {
+  font-size:13px;
+  color: var(--text-muted);
+  margin-top:8px;
+}
